@@ -11,7 +11,7 @@ It implements **Version 3: Recipe Management System** with:
 - Gemini AI recipe workflows
 
 ## Live URL
-- Netlify URL (placeholder): `https://<your-site-name>.netlify.app`
+- Netlify URL (placeholder): `https://fabulous-jalebi-d7ffc0.netlify.app/`
 
 ## Tech Stack
 - Next.js (App Router) + TypeScript
@@ -142,7 +142,9 @@ Demo account after seeding:
 3. Set `DATABASE_URL` (and optionally `TURSO_AUTH_TOKEN` if needed).
 
 ### 2) Apply migrations to production DB
-From your local machine with production env vars set:
+Migrations run automatically during Netlify deploy via `build:netlify` (`db:migrate` then `build`).
+
+If you want to pre-apply manually from local machine with production env vars:
 
 ```bash
 npm run db:migrate
@@ -151,7 +153,7 @@ npm run db:migrate
 ### 3) Deploy to Netlify
 1. Push repository to GitHub.
 2. In Netlify, **Add new site** from GitHub repo.
-3. Build command: `npm run build`
+3. Build command: `npm run build:netlify`
 4. Publish directory: handled by Next.js Netlify plugin.
 5. Set environment variables in Netlify:
    - `DATABASE_URL`

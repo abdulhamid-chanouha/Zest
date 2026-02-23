@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:netlify": "npm run db:migrate && npm run build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx",
     "db:generate": "drizzle-kit generate",
